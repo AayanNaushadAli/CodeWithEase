@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background 1.5s ease-in-out, color 1.5s ease-in-out;
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.container {
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    min-width: 300px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.clock {
+    font-size: 2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Themes */
+
+/* Morning: 6 AM - 12 PM */
+body.morning {
+    background: linear-gradient(-45deg, #FF9A9E, #FECFEF, #F6D365, #FDA085);
+    color: #4a4a4a;
+}
+
+/* Afternoon: 12 PM - 5 PM */
+body.afternoon {
+    background: linear-gradient(-45deg, #4facfe, #00f2fe, #30cfd0, #330867);
+    color: #ffffff;
+}
+
+/* Evening: 5 PM - 8 PM */
+body.evening {
+    background: linear-gradient(-45deg, #a18cd1, #fbc2eb, #fa709a, #fee140);
+    color: #ffffff;
+}
+
+/* Night: 8 PM - 6 AM */
+body.night {
+    background: linear-gradient(-45deg, #09203f, #537895, #141E30, #243B55);
+    color: #f0f0f0;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
