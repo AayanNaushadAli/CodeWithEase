@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #050505;
+    overflow: hidden;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.x-ray-text {
+    font-size: 20vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    cursor: default;
+    
+    /* The core effect */
+    background-image: radial-gradient(
+        circle 250px at var(--x, 50%) var(--y, 50%), 
+        #ffffff 0%, 
+        transparent 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+    /* Fallback/Initial state */
+    --x: 50%;
+    --y: 50%;
+    
+    /* Optional: Add a subtle text shadow for better visibility of "emptiness" if desired, 
+       but strictly per description "black screen with white text", we start invisible or fully dependent on mouse. 
+       Let's keep it strictly spotlight based. */
+}
