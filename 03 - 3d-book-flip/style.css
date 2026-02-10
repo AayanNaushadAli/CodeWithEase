@@ -1,0 +1,146 @@
+:root {
+    --book-width: 350px;
+    --book-height: 500px;
+    --paper-color: #fdfbf7;
+    --cover-color: #2c3e50;
+    --text-color: #333;
+    --transition-speed: 0.6s;
+    /* Smoother flip */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.scene {
+    width: var(--book-width);
+    height: var(--book-height);
+    perspective: 1500px;
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-speed);
+}
+
+.book.opened {
+    transform: translateX(50%);
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    /* Flips from the left spine */
+    transform-style: preserve-3d;
+    transition: transform var(--transition-speed) cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Hides back when facing away */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--paper-color);
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.face.front {
+    z-index: 2;
+}
+
+.face.back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    background-color: #f4f1ea;
+    /* Slightly darker for back of page */
+}
+
+/* Cover Styles */
+.cover {
+    background: var(--cover-color);
+    color: #ffd700;
+    border: 2px solid #1a252f;
+}
+
+.cover h1 {
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 10px;
+}
+
+.cover-back {
+    background: var(--cover-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Page Content Styling */
+.content {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.content h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--cover-color);
+    margin-bottom: 1rem;
+}
+
+.content p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.page-num {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.ornament {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ffd700;
+    transform: rotate(45deg);
+    margin-top: 2rem;
+}
+
+/* Classes for Flip State */
+.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Shadow for depth */
+.page::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.05), transparent 20%);
+    pointer-events: none;
+    z-index: 10;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Book Flip</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+           background: #1a1a1a;
+           display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene">
+        <div class="book">
+            <!-- Page 1: Front Cover -->
+            <div class="page" id="p1">
+                <div class="face front cover">
+                    <h1>The Book of Tech Facts</h1>
+                    <p>Click to Open</p>
+                    <div class="ornament"></div>
+                </div>
+                <div class="face back">
+                    <div class="content">
+                        <h2>Did You Know?</h2>
+                        <p>The very first computer "bug" was an actual real-life moth found trapped in a relay of the
+                            Harvard Mark II computer in 1947.</p>
+                        <span class="page-num">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page" id="p2">
+                <div class="face front">
+                    <div class="content">
+                        <h2>JavaScript's Origin</h2>
+                        <p>Brendan Eich created the first version of JavaScript in just <strong>10 days</strong> in May
+                            1995. It was originally called "Mocha".</p>
+                        <span class="page-num">2</span>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="content">
+                        <h2>First Domain</h2>
+                        <p>The first ever domain name registered was <strong>symbolics.com</strong> on March 15, 1985.
+                            It is still active today!</p>
+                        <span class="page-num">3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page" id="p3">
+                <div class="face front">
+                    <div class="content">
+                        <h2>Language Overload</h2>
+                        <p>There are estimated to be over <strong>700</strong> programming languages in the world,
+                            though only a small fraction are widely used.</p>
+                        <span class="page-num">4</span>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="content">
+                        <h2>The Cloud</h2>
+                        <p>"The Cloud" acts like a single huge computer, but it's actually millions of servers housed in
+                            massive data centers around the globe.</p>
+                        <span class="page-num">5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: Back Cover -->
+            <div class="page" id="p4">
+                <div class="face front">
+                    <div class="content">
+                        <h2>The End</h2>
+                        <p>Thanks for reading!</p>
+                        <button id="reset-btn">Reset Book</button>
+                    </div>
+                </div>
+                <div class="face back cover-back">
+                    <p>Code with Ease</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
